@@ -1,0 +1,25 @@
+{
+  "name": "dough-dealers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm install",
+    "start": "node index.js",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mhamwala/dough-dealers.git"
+  },
+  "author": "Musa Hamwala II",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhamwala/dough-dealers/issues"
+  },
+  "homepage": "https://github.com/mhamwala/dough-dealers#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  }
+}
