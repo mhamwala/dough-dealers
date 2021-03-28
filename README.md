@@ -8,7 +8,7 @@
 prereq => postgres
 
 1. Login to Superuser postgres
-- `psql -d postgres`
+- `psql -U postgres`
 
 2. Creating the testuser 
 - `CREATE ROLE testuser WITH LOGIN PASSWORD 'root';`
