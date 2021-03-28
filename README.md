@@ -26,7 +26,7 @@ prereq => postgres
 6. CREATE Products table
 ```
 - CREATE TABLE products (
-    ID int NOT NULL,
+    Id SERIAL not null,
     PRODUCT_NAME varchar(64),
     STOCK int,
     BASE_PRICE decimal,
@@ -37,10 +37,9 @@ prereq => postgres
 7. INSERT a product
 ```
 - INSERT INTO products (
-    id,
     product_name, 
     stock, 
     base_price) 
-    VALUES (1, 'Single Cookie', 5, 3.00
+    VALUES ('Single Cookie', 5, 3.00
     );
 ```
