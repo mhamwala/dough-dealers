@@ -43,3 +43,12 @@ prereq => postgres
     VALUES ('Single Cookie', 5, 3.00
     );
 ```
+
+8. Grant Privileges & Sequences to testuser, to avoid 42501 error.
+```
+- GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO testuser;
+
+- GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO testuser;
+```
+
+9. 
