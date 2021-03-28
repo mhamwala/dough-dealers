@@ -26,7 +26,7 @@ prereq => postgres
 6. CREATE Products table
 ```
 - CREATE TABLE products (
-    ID int NOT NULL AUTO_INCREMENT,
+    ID int NOT NULL,
     PRODUCT_NAME varchar(64),
     STOCK int,
     BASE_PRICE decimal,
