@@ -8,9 +8,10 @@ const pool = new Pool({
     port: 5432
 });
 
+// Get data from Products table
 const getProducts = () => {
     return new Promise(function(resolve, reject) {
-        pool.query('SELECT * FROM products ORDER by id', (error, results) => {
+        pool.query('SELECT * FROM Products ORDER by id', (error, results) => {
             if(error){
                 console.log('Failed to get products');
                 reject(error)
@@ -20,6 +21,19 @@ const getProducts = () => {
     })
 }
 
+// Create product, sample data below.. will need to change to 'body'
+const createProduct = (product_name, stock, base_price) => {
+    return new Promise(function(resolve, reject) {
+      pool.query('INSERT INTO Products (Product_Name, Stock, Base_Price) VALUES ($1, $2, $3) RETURNING *', [product_name, stock, base_price], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        resolve(`A new product has been added added: ${JSON.stringify(results)}`)
+      })
+    })
+  }
+
 module.exports = {
-    getProducts
+    getProducts,
+    createProduct
 }
