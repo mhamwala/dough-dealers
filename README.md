@@ -50,5 +50,3 @@ prereq => postgres
 
 - GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO testuser;
 ```
-
-9. 

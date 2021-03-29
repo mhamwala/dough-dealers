@@ -33,7 +33,6 @@ app.post('/addProduct', (req, res) => {
     const stock = prompt("Enter stock value - ");
     const base_price = prompt("Enter Base Price - ");
 
-
     db_model.createProduct(product_name, stock, base_price)
     .then(response => {
       res.status(200).send(response);
