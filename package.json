@@ -20,7 +20,6 @@
   "homepage": "https://github.com/mhamwala/dough-dealers#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pg": "^8.5.1",
-    "prompt-sync": "^4.2.0"
+    "pg": "^8.5.1"
   }
 }
