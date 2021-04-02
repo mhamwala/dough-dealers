@@ -1,32 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
+import { ShowProducts } from './ShowProducts';
+import { ProductForm } from './ProductsForm';
+
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
-    }
+    };
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
     fetch('http://localhost:5000/')
       .then(res => res.json())
-      .then(res => this.setState({products : res}, console.log(res)));
-    }
+      .then(res => this.setState({ products: res }, console.log(res)));
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          {this.state.products.map(product => (
-            <div>
-              <p>Product: {product.product_name} - Stock: {product.stock}</p>
-            </div>
-          ))}
-
-        </header>
+        <ProductForm handler={this.componentDidMount} />
+        <ShowProducts products={this.state.products}/>
       </div>
     );
   }

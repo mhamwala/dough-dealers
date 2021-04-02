@@ -30,11 +30,6 @@ app.get('/', (req, res) => {
     .catch(error => {
         res.status(500).send(error);
     })
-    // const products = [
-    //     {name: 'Eduards'}
-    // ];
-
-    // res.send("products");
 })
 
 // Add Data
