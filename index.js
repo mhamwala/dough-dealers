@@ -1,18 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const db_model = require('./db_model');
-const port = 3000;
+const { response } = require('express');
+const port = 5000;
 
 const app = express();
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Alloq-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Alloq-Origin', 'http://localhost:5000');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
     next();
