@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class ProductForm extends React.Component {
+class AddProduct extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,12 +15,17 @@ class ProductForm extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    reloadData() {
+        this.props.handler();
+    }
+
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
         axios.post('http://localhost:5000/addProduct', this.state)
             .then(res => {
                 console.log(res);
+                this.reloadData();
             })
             .catch(err => {
                 console.log(err);
@@ -49,10 +54,10 @@ class ProductForm extends React.Component {
                     value={basePrice}
                     name="basePrice"
                     onChange={this.changeHandler} />
-                <button type="submit" onClick={this.props.handler}>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         );
     }
 }
 
-export {ProductForm};
+export { AddProduct };

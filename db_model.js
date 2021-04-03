@@ -21,6 +21,18 @@ const getProducts = () => {
   })
 }
 
+// Delete specifc product by id
+const deleteProduct = (id) => {
+  return new Promise(function(resolve, reject) {
+    pool.query('DELETE FROM Products WHERE id = $1 RETURNING *', [id], (error, results) => {
+      if(error) {
+        reject(error)
+      }
+      resolve(`Product has been deleted, Id: ${id}`);
+    })
+  })
+}
+
 // Create product, sample data below.. will need to change to 'body'
 const createProduct = (productName, stock, basePrice) => {
   return new Promise(function (resolve, reject) {
@@ -35,5 +47,6 @@ const createProduct = (productName, stock, basePrice) => {
 
 module.exports = {
   getProducts,
-  createProduct
+  createProduct,
+  deleteProduct
 }
