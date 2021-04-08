@@ -32,6 +32,19 @@ app.get('/', (req, res) => {
     })
 })
 
+// Remove Product
+app.post('/remove/:id', async (req, res) => {
+    try {
+        let productToRemove = await db_model.deleteProduct(req.params.id);
+
+        console.log(productToRemove);
+        res.status(200).send(productToRemove);
+    } catch(error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+})
+
 // Add Data
 app.post('/addProduct', async (req, res) => {
 
